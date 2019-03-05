@@ -1,2 +1,3 @@
-# PyTeEq
-Python Test Equipment
+# PyteQ
+
+Test Equipment Software
