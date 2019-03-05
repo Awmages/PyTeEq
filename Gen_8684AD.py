@@ -1,17 +1,17 @@
 import visa
 
-class Siggen:
-    """"Class Siggen, for 8684A-D
+class Agilent_8684:
+    """"Class Agilent_8684, for Agilent 8684A-D Signal Generator.
 
     Attribute:
-        Name(str): name of the signal generator, Type(str): Manufacturer of the signal generator,
-        Model(str): model type of signal generator, address_gpib(str): signal generator's GPIB address,
-        freq(str): frequency in MHz"""
+        Name(str): name of the signal generator, Model(str): model type of signal generator,
+        address_gpib(str): signal generator's GPIB address, freq(str): frequency in MHz
 
-    def __init__(self, name="Signal Generator", type="Agilent", model="8648C", address_gpib="19", freq="100",
+    """
+
+    def __init__(self, name="Signal Generator", model="8648C", address_gpib="19", freq="100",
                  amplitude="-40"):
         self.name = name
-        self.type = type
         self.model = model
         self.address_gpib = address_gpib
         self.freq = freq
@@ -32,7 +32,6 @@ class Siggen:
             return answer
         else:
             self.gpib_socket.write(gpib_message)
-
 
     def set_default_all(self):
         """"Sets frequency signal generator to LPT default settings: freq 100 MHz, power -40 dBm, RF State On"""
@@ -64,6 +63,3 @@ class Siggen:
         float_freq = "{} Hz".format(float(value_return[0]))
         float_amp = "{} dBm".format(float(value_return[1]))
         return float_freq, float_amp
-
-
-
